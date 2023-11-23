@@ -14,7 +14,7 @@ public class Combustivel {
         this.nomeCombustivel = nomeCombustivel;
     }
 
-    public Double getPrecoCombustivel() {
+    public double getPrecoCombustivel() {
         return precoCombustivel;
     }
 

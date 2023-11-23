@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
     Button idEnd;
 
     String sugest;
-    Double precoGasolina;
-    Double precoEtanol;
+    double precoGasolina;
+    double precoEtanol;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,6 +120,10 @@ public class MainActivity extends AppCompatActivity {
                 idSave.setEnabled(false);
                 idResultado.setText("Resultado");
 
+                control.Limpar();
+
+
+
             }
         });
 
@@ -138,6 +142,9 @@ public class MainActivity extends AppCompatActivity {
 
                 combustivelGasolina.setSugest(UtilGasEta.calcOpcao(precoGasolina, precoEtanol));
                 combustivelEtanol.setSugest(UtilGasEta.calcOpcao(precoGasolina, precoEtanol));
+
+                control.Salvar(combustivelGasolina);
+                control.Salvar(combustivelEtanol);
 
             }
         });

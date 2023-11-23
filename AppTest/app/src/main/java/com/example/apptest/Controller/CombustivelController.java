@@ -11,13 +11,13 @@ import com.example.apptest.View.MainActivity;
 public class CombustivelController {
 
     SharedPreferences preferences;
-    public static final String New_preferences = "pref_lista";
-    SharedPreferences.Editor listaAlunos;
+    public static final String New_preferences = "pref_fuel";
+    SharedPreferences.Editor fuelList;
 
     public CombustivelController(MainActivity mainActivity) {
 
         preferences = mainActivity.getSharedPreferences(New_preferences, 0);
-        listaAlunos = preferences.edit();
+        fuelList = preferences.edit();
     }
 
 
@@ -31,9 +31,19 @@ public class CombustivelController {
 
     }
 
-    public void Limpar(Combustivel combustivel) {
+    public void Limpar() {
+
+        fuelList.clear();
+        fuelList.apply();
+
     }
 
     public void Salvar(Combustivel combustivel) {
+
+        fuelList.putString("Combustível: ", combustivel.getNomeCombustivel());
+        fuelList.putFloat("Preço: ", (float) combustivel.getPrecoCombustivel());
+        fuelList.putString("recomendacap: ", combustivel.getSugest());
+        fuelList.apply();
+
     }
 }
