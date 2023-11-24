@@ -1,5 +1,6 @@
 package com.example.apptest.DataBase;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -9,9 +10,9 @@ import androidx.annotation.Nullable;
 
 public class GasEtaDB extends SQLiteOpenHelper {
 
-    public static final String  DB_NAME = "gaseta_db";
+    private static final String  DB_NAME = "gaseta_db";
 
-    public static final int DB_Version = 1;
+    private static final int DB_Version = 1;
 
     Cursor cursor;
 
@@ -27,9 +28,9 @@ public class GasEtaDB extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String sqlTabela = "CREATE TABLE combustivel(id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "nomeCombustivel TEXT," +
-                "precoCombustivel REAL," +
+        String sqlTabela = "CREATE TABLE combustivel(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "nomeCombustivel TEXT, " +
+                "precoCombustivel REAL, " +
                 "recomendacao TEXT)";
 
         db.execSQL(sqlTabela);
@@ -38,7 +39,11 @@ public class GasEtaDB extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) { }
+
+    public void salvarObjeto(String tabela, ContentValues dados){
+
+        db.insert(tabela, null, dados);
 
     }
 }
