@@ -10,6 +10,8 @@ import com.example.apptest.DataBase.GasEtaDB;
 import com.example.apptest.Model.Combustivel;
 import com.example.apptest.View.MainActivity;
 
+import java.util.List;
+
 public class CombustivelController extends GasEtaDB {
 
     SharedPreferences preferences;
@@ -56,5 +58,10 @@ public class CombustivelController extends GasEtaDB {
 
         salvarObjeto("Combustivel", dados);
 
+    }
+
+    public List<Combustivel> getDataList(){
+
+        return dataListener();
     }
 }

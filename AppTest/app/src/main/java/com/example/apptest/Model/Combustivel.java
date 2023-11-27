@@ -3,8 +3,19 @@ package com.example.apptest.Model;
 public class Combustivel {
 
     private String nomeCombustivel;
-    private Double precoCombustivel;
+    private double precoCombustivel;
     private String sugest;
+    private int id;
+
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNomeCombustivel() {
         return nomeCombustivel;
@@ -18,7 +29,7 @@ public class Combustivel {
         return precoCombustivel;
     }
 
-    public void setPrecoCombustivel(Double precoCombustivel) {
+    public void setPrecoCombustivel(double precoCombustivel) {
         this.precoCombustivel = precoCombustivel;
     }
 
@@ -27,6 +38,6 @@ public class Combustivel {
     }
 
     public void setSugest(String resultado) {
-        sugest = resultado;
+        this.sugest = resultado;
     }
 }

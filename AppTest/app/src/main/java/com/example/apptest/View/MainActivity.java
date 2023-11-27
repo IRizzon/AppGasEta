@@ -5,15 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.apptest.Controller.CombustivelController;
-import com.example.apptest.Controller.PostoController;
 import com.example.apptest.Model.Combustivel;
 import com.example.apptest.R;
 import com.example.apptest.Util.UtilGasEta;
@@ -22,10 +19,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    PostoController postoControl;
-    List<String> Posto;
 
-    Spinner spinner;
+    List<Combustivel> data;
+
 
     CombustivelController control;
 
@@ -51,17 +47,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        postoControl = new PostoController();
-        Posto = postoControl.getListaPosto();
-
-        spinner = findViewById(R.id.idlistaposto);
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_list_item_1, postoControl.dataSpinner());
-        adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
-        spinner.setAdapter(adapter);
-
         control = new CombustivelController(MainActivity.this);
+        data = control.getDataList();
+
         control.toString();
 
         idGas = findViewById(R.id.idGas);
